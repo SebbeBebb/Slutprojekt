@@ -62,40 +62,38 @@ public class Slutprojekt_prog {
         String fönster = key.nextLine();
         if (fönster.equalsIgnoreCase("Ja")) {
             System.out.print("Skriv in personnummer för resenär: ");
-        int persnr = key.nextInt();
-        if (persnr > 19000101 && persnr < 20231231) {
-            for (int i = 1; i < bussplats_fält.length; i++) {
-                if (i%4==0&& i!=20 || i-1%4==0) {
-                if (bussplats_fält[i] == 0) {
-                    System.out.println("Du har fönsterplats " + i);
-                    bussplats_fält[i] = persnr;
-                    break;
+            int persnr = key.nextInt();
+            if (persnr > 19000101 && persnr < 20231231) {
+                for (int i = 1; i < bussplats_fält.length; i++) {
+                    if (i % 4 == 0 && i != 20 || i - 1 % 4 == 0) {
+                        if (bussplats_fält[i] == 0) {
+                            System.out.println("Du har fönsterplats " + i);
+                            bussplats_fält[i] = persnr;
+                            break;
+                        }
+                    }
                 }
+            } else {
+                System.out.println("Inte ett riktigt persnonnummer");
             }
-                }
-        } else {
-            System.out.println("Inte ett riktigt persnonnummer");
-        }
-        }
-        else if(fönster.equalsIgnoreCase("Nej")){
+        } else if (fönster.equalsIgnoreCase("Nej")) {
             System.out.print("Skriv in personnummer för resenär: ");
-        int persnr = key.nextInt();
-        if (persnr > 19000101 && persnr < 20231231) {
-            for (int i = 1; i < bussplats_fält.length; i++) {
-                if (bussplats_fält[i] == 0) {
-                    System.out.println("Du har plats " + i);
-                    bussplats_fält[i] = persnr;
-                    break;
+            int persnr = key.nextInt();
+            if (persnr > 19000101 && persnr < 20231231) {
+                for (int i = 1; i < bussplats_fält.length; i++) {
+                    if (bussplats_fält[i] == 0) {
+                        System.out.println("Du har plats " + i);
+                        bussplats_fält[i] = persnr;
+                        break;
+                    }
                 }
+            } else {
+                System.out.println("Inte ett riktigt persnonnummer");
             }
         } else {
-            System.out.println("Inte ett riktigt persnonnummer");
-        }
-        }
-        else{
             System.out.println("Ogiltigt val");
         }
-        
+
     }
 
     static void ledigaplatser() {
@@ -149,6 +147,7 @@ public class Slutprojekt_prog {
             if (bussplats_fält[i] == persnr) {
                 bussplats_fält[i] = 0;
                 System.out.println("Din plats har avbokats");
+            }
         }
     }
-}}
+}
